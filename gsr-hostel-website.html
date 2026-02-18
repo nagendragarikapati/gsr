@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSR Executive Men's Hostel – Hitech City, Hyderabad</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --rust: #c84b11;
+    --amber: #e8a020;
+    --khaki: #d4b483;
+    --sand: #f5ede0;
+    --forest: #2d4a22;
+    --mist: #8fa68a;
+    --paper: #fdf8f0;
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 2.5rem;
+    background: rgba(26,18,8,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 2px solid var(--rust);
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--amber);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--sand); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--amber); }
+
+  .nav-cta {
+    background: var(--rust);
+    color: #fff !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2px;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: 1fr;
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(200,75,17,0.35) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(45,74,34,0.4) 0%, transparent 50%),
+      linear-gradient(160deg, #1a1208 0%, #2a1f0e 50%, #0f1a0c 100%);
+  }
+
+  /* Compass decoration */
+  .compass {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 320px;
+    opacity: 0.12;
+    animation: spin 60s linear infinite;
+  }
+
+  @keyframes spin { to { transform: translateY(-50%) rotate(360deg); } }
+
+  /* Diagonal stripes */
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 120px;
+    background: var(--paper);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 120px 8% 80px;
+    max-width: 780px;
+  }
+
+  .hero-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--rust);
+  }
+
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 10vw, 8rem);
+    line-height: 0.92;
+    color: var(--sand);
+    letter-spacing: 2px;
+    margin-bottom: 0.3em;
+    animation: slideUp 0.8s ease both;
+  }
+
+  .hero h1 em {
+    color: var(--amber);
+    font-style: normal;
+    display: block;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--khaki);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 2.5rem;
+    animation: slideUp 0.8s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: slideUp 0.8s 0.4s ease both;
+  }
+
+  .btn-primary {
+    background: var(--rust);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: #a33a08; transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 2px solid var(--khaki);
+    color: var(--khaki);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 1rem 2.2rem;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { background: var(--khaki); color: var(--ink); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 140px;
+    right: 8%;
+    display: flex;
+    gap: 2.5rem;
+    z-index: 2;
+    animation: slideUp 0.8s 0.6s ease both;
+  }
+
+  .stat { text-align: center; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.8rem;
+    color: var(--amber);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mist);
+  }
+
+  /* SECTION STYLES */
+  section { padding: 6rem 8%; }
+
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .section-tag::before {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: var(--rust);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  /* ABOUT */
+  #about {
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .about-visual {
+    position: relative;
+  }
+
+  .about-img-frame {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--forest), var(--ink));
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-img-frame::before {
+    content: '🏙️';
+    font-size: 8rem;
+    opacity: 0.3;
+  }
+
+  .about-badge {
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    width: 120px;
+    height: 120px;
+    background: var(--rust);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    border: 4px solid var(--paper);
+  }
+
+  .about-badge strong {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+  }
+
+  .about-badge span {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #4a3c28;
+    margin-bottom: 1.2rem;
+  }
+
+  .amenities-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem;
+    margin-top: 2rem;
+  }
+
+  .amenity-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--ink);
+  }
+
+  .amenity-item::before {
+    content: '✦';
+    color: var(--amber);
+    font-size: 0.7rem;
+  }
+
+  /* ROOMS */
+  #rooms {
+    background: var(--ink);
+    color: var(--sand);
+  }
+
+  #rooms .section-title { color: var(--sand); }
+
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .room-card {
+    background: linear-gradient(160deg, #2a1f0e, #1a1208);
+    border: 1px solid rgba(212,180,131,0.15);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+  }
+
+  .room-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--rust);
+  }
+
+  .room-card.popular {
+    border-color: var(--amber);
+  }
+
+  .popular-tag {
+    position: absolute;
+    top: 1rem; right: 1rem;
+    background: var(--amber);
+    color: var(--ink);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    border-radius: 2px;
+  }
+
+  .room-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .room-type {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--amber);
+    letter-spacing: 1px;
+    margin-bottom: 0.3rem;
+  }
+
+  .room-desc {
+    font-size: 0.85rem;
+    color: var(--mist);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .room-price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    color: var(--sand);
+    line-height: 1;
+  }
+
+  .room-price sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--mist);
+    vertical-align: baseline;
+  }
+
+  .room-features {
+    list-style: none;
+    margin: 1.2rem 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .room-features li {
+    font-size: 0.85rem;
+    color: var(--khaki);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .room-features li::before {
+    content: '→';
+    color: var(--rust);
+  }
+
+  .room-card .btn-primary { width: 100%; text-align: center; }
+
+  /* GALLERY */
+  #gallery { background: var(--sand); }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.8rem;
+    margin-top: 3rem;
+  }
+
+  .gallery-item {
+    background: linear-gradient(135deg, var(--forest), var(--ink));
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .gallery-item:hover { transform: scale(0.98); }
+
+  .gallery-item:first-child {
+    grid-row: span 2;
+    aspect-ratio: auto;
+    min-height: 400px;
+    font-size: 6rem;
+  }
+
+  .gallery-item::after {
+    content: attr(data-label);
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(26,18,8,0.85));
+    color: var(--khaki);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1.5rem 1rem 0.8rem;
+    text-align: center;
+  }
+
+  /* REVIEWS */
+  #reviews {
+    background: var(--paper);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: #fff;
+    border-radius: 4px;
+    padding: 2rem;
+    border-top: 4px solid var(--amber);
+    box-shadow: 0 4px 20px rgba(26,18,8,0.07);
+  }
+
+  .review-stars {
+    color: var(--amber);
+    font-size: 1rem;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #4a3c28;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .review-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--forest);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--mist);
+  }
+
+  .review-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+  }
+
+  .review-role {
+    font-size: 0.78rem;
+    color: var(--mist);
+  }
+
+  /* BOOKING FORM */
+  #booking {
+    background: var(--forest);
+    color: var(--sand);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #booking::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 60px solid rgba(232,160,32,0.08);
+  }
+
+  #booking .section-title { color: var(--sand); }
+  #booking .section-tag { color: var(--amber); }
+  #booking .section-tag::before { background: var(--amber); }
+
+  .booking-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+
+  .booking-info p {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--mist);
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: rgba(232,160,32,0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .contact-detail strong {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--amber);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-detail span {
+    font-size: 0.95rem;
+    color: var(--khaki);
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  form .full { grid-column: span 2; }
+
+  label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mist);
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  input, select, textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(212,180,131,0.2);
+    color: var(--sand);
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    padding: 0.85rem 1rem;
+    border-radius: 2px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--amber);
+  }
+
+  select option { background: var(--forest); color: var(--sand); }
+  textarea { resize: vertical; min-height: 100px; }
+
+  /* MAP */
+  #contact {
+    background: var(--ink);
+    padding: 4rem 8%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .map-placeholder {
+    background: #1e1608;
+    border-radius: 4px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(212,180,131,0.1);
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .map-placeholder:hover { border-color: var(--rust); }
+
+  .map-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(45,74,34,0.4) 0%, transparent 70%);
+  }
+
+  .map-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: var(--mist);
+  }
+
+  .map-content .map-icon { font-size: 3rem; margin-bottom: 0.8rem; }
+
+  .map-content p {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--khaki);
+    margin-bottom: 0.3rem;
+  }
+
+  .map-content small { font-size: 0.75rem; color: var(--mist); }
+
+  .map-open-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--rust);
+    color: #fff;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    margin-top: 1rem;
+    display: block;
+    width: fit-content;
+    margin: 1rem auto 0;
+  }
+
+  .contact-section h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--sand);
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0f0d08;
+    color: var(--mist);
+    padding: 2.5rem 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(212,180,131,0.1);
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--amber);
+    letter-spacing: 2px;
+  }
+
+  footer p { font-size: 0.82rem; }
+
+  footer .footer-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+
+  footer .footer-links a {
+    font-size: 0.8rem;
+    color: var(--mist);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  footer .footer-links a:hover { color: var(--amber); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    #about { grid-template-columns: 1fr; }
+    .rooms-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item:first-child { grid-row: span 1; min-height: auto; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .booking-layout { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; }
+    .hero-stats { position: static; margin-top: 2rem; flex-wrap: wrap; }
+    form { grid-template-columns: 1fr; }
+    form .full { grid-column: span 1; }
+    .nav-links { display: none; }
+  }
+
+  /* SCROLL ANIMATIONS */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">GSR <span>Hostel</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Map</a></li>
+    <li><a href="#booking" class="nav-cta">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <svg class="compass" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="95" stroke="#e8a020" stroke-width="2"/>
+    <circle cx="100" cy="100" r="70" stroke="#e8a020" stroke-width="1" stroke-dasharray="4 4"/>
+    <line x1="100" y1="10" x2="100" y2="190" stroke="#c84b11" stroke-width="1.5"/>
+    <line x1="10" y1="100" x2="190" y2="100" stroke="#c84b11" stroke-width="1.5"/>
+    <polygon points="100,15 106,100 100,88 94,100" fill="#e8a020"/>
+    <polygon points="100,185 106,100 100,112 94,100" fill="#d4b483"/>
+    <text x="100" y="8" text-anchor="middle" fill="#e8a020" font-size="10" font-family="serif">N</text>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-tag">Hitech City · Hyderabad · Est. Hostel</div>
+    <h1>GSR<em>Executive</em>Men's Hostel</h1>
+    <p class="hero-sub">Your base camp in the heart of Hyderabad's tech corridor. Affordable, safe, and fully loaded — where professionals and students build their stories.</p>
+    <div class="hero-actions">
+      <a href="#booking" class="btn-primary">Check Availability</a>
+      <a href="#rooms" class="btn-outline">View Rooms & Pricing</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">3+</div>
+      <div class="stat-label">Room Types</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">24/7</div>
+      <div class="stat-label">Security</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">1km</div>
+      <div class="stat-label">To Metro</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">4.5★</div>
+      <div class="stat-label">Rated</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-img-frame"></div>
+    <div class="about-badge">
+      <strong>HI-</strong>
+      <span>TECH CITY</span>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="section-tag">About Us</div>
+    <h2 class="section-title">Your Home in<br>Hyderabad's Hub</h2>
+    <p>GSR Executive Men's Hostel is strategically located in Cyber Hills Colony, Hitech City — the beating heart of Hyderabad's IT sector. Whether you're a working professional, a student, or someone new to the city, we offer more than just a bed: we offer a community.</p>
+    <p>Just minutes from Shilparamam, N Convention Road, and the HITEC City metro, our hostel puts you at the center of everything while giving you a comfortable, secure place to recharge.</p>
+    <div class="amenities-grid">
+      <div class="amenity-item">Attached Toilets</div>
+      <div class="amenity-item">24/7 Hot Water</div>
+      <div class="amenity-item">Safety Lockers</div>
+      <div class="amenity-item">Wi-Fi Internet</div>
+      <div class="amenity-item">CCTV Security</div>
+      <div class="amenity-item">Power Backup</div>
+      <div class="amenity-item">Near Metro</div>
+      <div class="amenity-item">Housekeeping</div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="rooms">
+  <div class="section-tag">Accommodation</div>
+  <h2 class="section-title">Rooms & Pricing</h2>
+  <div class="rooms-grid">
+
+    <div class="room-card reveal">
+      <div class="room-icon">🛏️</div>
+      <div class="room-type">Single Sharing</div>
+      <p class="room-desc">Your own private space. Perfect for those who value solitude and focus.</p>
+      <div class="room-price">Contact<sub> for price</sub></div>
+      <ul class="room-features">
+        <li>Private room</li>
+        <li>Attached bathroom</li>
+        <li>Safety locker</li>
+        <li>Hot water</li>
+        <li>Wi-Fi included</li>
+      </ul>
+      <a href="#booking" class="btn-primary">Enquire Now</a>
+    </div>
+
+    <div class="room-card popular reveal">
+      <div class="popular-tag">Most Popular</div>
+      <div class="room-icon">🏠</div>
+      <div class="room-type">Double Sharing</div>
+      <p class="room-desc">Share with one roommate. Great value with all the comforts you need.</p>
+      <div class="room-price">Contact<sub> for price</sub></div>
+      <ul class="room-features">
+        <li>Shared with 1 person</li>
+        <li>Attached bathroom</li>
+        <li>Individual lockers</li>
+        <li>Hot water</li>
+        <li>Wi-Fi included</li>
+      </ul>
+      <a href="#booking" class="btn-primary">Enquire Now</a>
+    </div>
+
+    <div class="room-card reveal">
+      <div class="room-icon">👥</div>
+      <div class="room-type">Triple Sharing</div>
+      <p class="room-desc">Best value option. Share costs while building connections.</p>
+      <div class="room-price">Contact<sub> for price</sub></div>
+      <ul class="room-features">
+        <li>Shared with 2 others</li>
+        <li>Common bathroom</li>
+        <li>Safety lockers</li>
+        <li>Hot water</li>
+        <li>Wi-Fi included</li>
+      </ul>
+      <a href="#booking" class="btn-primary">Enquire Now</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-tag">Gallery</div>
+  <h2 class="section-title">Inside GSR</h2>
+  <div class="gallery-grid">
+    <div class="gallery-item" data-label="Common Area">🏨</div>
+    <div class="gallery-item" data-label="Rooms">🛏️</div>
+    <div class="gallery-item" data-label="Facilities">🚿</div>
+    <div class="gallery-item" data-label="Security">🔒</div>
+    <div class="gallery-item" data-label="Surroundings">🌆</div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-tag">Testimonials</div>
+  <h2 class="section-title">What Residents Say</h2>
+  <div class="reviews-grid">
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Great location in Hitech City. Easy access to work and the metro. Staff is friendly and the facilities are well maintained. Highly recommended for working professionals."</p>
+      <div class="review-author">
+        <div class="review-avatar">👨</div>
+        <div>
+          <div class="review-name">Arjun K.</div>
+          <div class="review-role">Software Engineer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">"Very affordable compared to other options in the area. The safety lockers gave me peace of mind and hot water was always available. Clean and comfortable."</p>
+      <div class="review-author">
+        <div class="review-avatar">👨‍💼</div>
+        <div>
+          <div class="review-name">Rahul M.</div>
+          <div class="review-role">Student, JNTU</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="review-card reveal">
+      <div class="review-stars">★★★★☆</div>
+      <p class="review-text">"Solid value for money. The double sharing room was spacious enough. Wi-Fi was reliable. Located perfectly near Shilparamam and the tech parks. Would stay again."</p>
+      <div class="review-author">
+        <div class="review-avatar">🧑</div>
+        <div>
+          <div class="review-name">Vikram S.</div>
+          <div class="review-role">IT Consultant</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOOKING FORM -->
+<section id="booking">
+  <div class="booking-layout">
+    <div class="booking-info reveal">
+      <div class="section-tag">Book Your Stay</div>
+      <h2 class="section-title">Reserve a Room</h2>
+      <p>Fill the form and we'll get back to you within a few hours. Monthly and long-term stays welcome.</p>
+      <div class="contact-item">
+        <div class="contact-icon">📞</div>
+        <div class="contact-detail">
+          <strong>Phone</strong>
+          <span>Contact us to get the number</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div class="contact-detail">
+          <strong>Address</strong>
+          <span>Cyber Hills Colony, Near Shilparamam,<br>Hitech City, Hyderabad, Telangana</span>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🕐</div>
+        <div class="contact-detail">
+          <strong>Check-in</strong>
+          <span>Monthly / Long-term stays preferred</span>
+        </div>
+      </div>
+    </div>
+
+    <form class="reveal" onsubmit="handleSubmit(event)">
+      <div>
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" placeholder="Rahul" required>
+      </div>
+      <div>
+        <label for="lname">Last Name</label>
+        <input type="text" id="lname" placeholder="Kumar" required>
+      </div>
+      <div>
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="rahul@email.com" required>
+      </div>
+      <div>
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+91 9XXXXXXXXX" required>
+      </div>
+      <div>
+        <label for="room">Room Type</label>
+        <select id="room">
+          <option value="">Select room type</option>
+          <option>Single Sharing</option>
+          <option>Double Sharing</option>
+          <option>Triple Sharing</option>
+        </select>
+      </div>
+      <div>
+        <label for="checkin">Expected Move-in</label>
+        <input type="date" id="checkin">
+      </div>
+      <div class="full">
+        <label for="message">Message (Optional)</label>
+        <textarea id="message" placeholder="Any specific requirements or questions..."></textarea>
+      </div>
+      <div class="full">
+        <button type="submit" class="btn-primary" style="width:100%;padding:1.1rem;font-size:1rem;">Send Enquiry →</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- MAP / CONTACT -->
+<section id="contact">
+  <div class="contact-section reveal">
+    <h2>Find Us in<br>Hitech City</h2>
+    <p style="color:var(--mist);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;">We're located in Cyber Hills Colony, near Shilparamam and N Convention Road in Hitech City, Hyderabad — right in the heart of the tech hub.</p>
+    <a href="https://maps.app.goo.gl/YNp6oH53DQTZCkZW7" target="_blank" class="btn-primary">📍 Open in Google Maps</a>
+  </div>
+  <a class="map-placeholder reveal" href="https://maps.app.goo.gl/YNp6oH53DQTZCkZW7" target="_blank">
+    <div class="map-content">
+      <div class="map-icon">🗺️</div>
+      <p>GSR Executive Men's Hostel</p>
+      <small>Cyber Hills Colony, Hitech City, Hyderabad</small>
+      <a class="map-open-link" href="https://maps.app.goo.gl/YNp6oH53DQTZCkZW7" target="_blank">Open Map ↗</a>
+    </div>
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="logo">GSR Hostel</div>
+  <p>© 2025 GSR Executive Men's Hostel, Hitech City, Hyderabad</p>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#rooms">Rooms</a></li>
+    <li><a href="#booking">Book</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => observer.observe(r));
+
+  // Stagger children
+  document.querySelectorAll('.rooms-grid, .reviews-grid').forEach(grid => {
+    grid.querySelectorAll('.reveal').forEach((el, i) => {
+      el.style.transitionDelay = `${i * 0.1}s`;
+    });
+  });
+
+  // Form
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    btn.textContent = '✓ Enquiry Sent! We\'ll contact you soon.';
+    btn.style.background = '#2d4a22';
+    setTimeout(() => {
+      btn.textContent = 'Send Enquiry →';
+      btn.style.background = '';
+      e.target.reset();
+    }, 4000);
+  }
+</script>
+</body>
+</html>
